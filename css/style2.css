@@ -1,0 +1,20 @@
+table{
+    border:solid #184463;
+    border-collapse: collapse;
+}
+th, h1 {
+    background-color: #027bdf;
+  }
+td,th {
+    border: solid 1px #184463;
+    text-align: center;
+    padding: 5px;
+    color: black;
+  }
+aside{
+    float: left;
+}
+section{
+    float:right;
+    padding-left: 100px;
+}

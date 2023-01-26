@@ -1,0 +1,101 @@
+create database jmaAdm;
+use jmaAdm;
+CREATE TABLE `categoria` (
+  `idCat` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL
+);
+CREATE TABLE `productos` (
+  `idProducto` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `precio` decimal(10,0) NOT NULL,
+  `stock` int(11) NOT NULL,
+  `categoria` int(11) NOT NULL
+);
+
+CREATE TABLE `reclamos` (
+  `idReclamo` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `Contenido` varchar(100) NOT NULL
+);
+
+CREATE TABLE `usuarios` (
+  `idUsuario` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `apellidos` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `pass` varchar(50) NOT NULL
+);
+
+
+INSERT INTO `categoria` (`idCat`, `nombre`) VALUES
+(1, 'Maquina'),
+(2, 'Llave');
+
+INSERT INTO `productos` (`idProducto`, `nombre`, `precio`, `stock`, `categoria`) VALUES
+(1, 'AUS-1X', '7', 100, 2),
+(2, 'Berna Simply', '250', 10, 1);
+
+INSERT INTO `reclamos` (`idReclamo`, `id_usuario`, `Contenido`) VALUES
+(2662, 1, 'No me enviaron las llaves que pedi'),
+(2663, 2, 'No puedo generar una factura');
+
+ALTER TABLE `categoria`
+  ADD PRIMARY KEY (`idCat`);
+
+--
+-- Indices de la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`idProducto`),
+  ADD KEY `cate` (`categoria`);
+
+--
+-- Indices de la tabla `reclamos`
+--
+ALTER TABLE `reclamos`
+  ADD PRIMARY KEY (`idReclamo`),
+  ADD KEY `test` (`id_usuario`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`idUsuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `categoria`
+--
+ALTER TABLE `categoria`
+  MODIFY `idCat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `productos`
+--
+ALTER TABLE `productos`
+  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `reclamos`
+--
+ALTER TABLE `reclamos`
+  MODIFY `idReclamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2664;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD CONSTRAINT `cate` FOREIGN KEY (`categoria`) REFERENCES `categoria` (`idCat`);

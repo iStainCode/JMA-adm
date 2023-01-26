@@ -1,6 +1,6 @@
 <?php
 // Verificar si se ha enviado el formulario de inicio de sesión
-if (isset($_POST["txtCorreo"]) && isset($_POST["txtContra"])) {
+if (isset($_POST["txtCorreo"]) && isset(md5($_POST)["txtContra"])) {
     // Escapar los valores del formulario
     $email = $conexion->real_escape_string($_POST["txtCorreo"]);
     $password = $conexion->real_escape_string($_POST["txtContra"]);
