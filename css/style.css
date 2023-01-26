@@ -5,7 +5,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    background-image: url(./fondo-login.jpg);
+    background-image: url(../imgs/fondo-login.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
