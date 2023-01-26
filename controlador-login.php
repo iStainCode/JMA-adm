@@ -1,7 +1,4 @@
 <?php
-// Iniciar la sesión
-session_start();
-
 // Verificar si se ha enviado el formulario de inicio de sesión
 if (isset($_POST["txtCorreo"]) && isset($_POST["txtContra"])) {
     // Escapar los valores del formulario
@@ -15,11 +12,10 @@ if (isset($_POST["txtCorreo"]) && isset($_POST["txtContra"])) {
     // Verificar si el usuario existe en la base de datos
     if ($result->num_rows > 0) {
         // El usuario existe, iniciar una sesión
-        header("Location: principal.php");
-        exit();
+        header("Location: principal.html");
     } else {
         // El usuario no existe, mostrar un mensaje de error
-        echo "El nombre de usuario o la contraseña son incorrectos";
+        echo "El correo y/o contraseña son incorrectos";
     }
 }
 ?>

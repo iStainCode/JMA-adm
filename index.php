@@ -28,7 +28,7 @@
             <form class="login-card-form" method="post">
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">Email</span>
-                    <input type="text" placeholder="Correo" id="emailForm" autofocus required name="txtCorreo">
+                    <input type="email" placeholder="Correo" id="emailForm" autofocus required name="txtCorreo">
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">Password</span>
