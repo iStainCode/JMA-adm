@@ -69,7 +69,47 @@
     </div>
     <div class="container-usu">
         <button class="btn">Añadir Usuario</button>
+        <div class="container-table">
+        <?php
+            $user = "root";
+            $pass = "";
+            $host = "localhost";
+            $connection = mysqli_connect($host, $user, $pass);
+            $datab = "jmaAdm";
+            $db = mysqli_select_db($connection,$datab);
+            $consulta = "SELECT * FROM usuarios";
+            $result = mysqli_query($connection,$consulta);
+            if(!$result) 
+            {
+                echo "No se ha podido realizar la consulta";
+            }
+            echo "<table>";
+            echo "<tr>";
+            echo "<th>Codigo</th>";
+            echo "<th>Nombre</th>";
+            echo "<th>Apellido</th>";
+            echo "<th>Telefono</th>";
+            echo "<th>Cargo</th>";
+            echo "<th>Correo</th>";
+            echo "<th>Opciones</th>";
+            echo "</tr>";
+            while ($row = mysqli_fetch_array($result))
+            {?>
+                <?php echo "<tr>";
+                echo "<td>" . $row['idUsuario']. "</td>";
+                echo "<td>" . $row['nombre']. "</td>";
+                echo "<td>" . $row['apellido'] . "</td>";
+                echo "<td>" . $row['telefono'] . "</td>";
+                echo "<td>" . $row['cargo'] . "</td>";
+                echo "<td>" . $row['correo'] . "</td>";
+                ?>
+                <td><a class="Delete" href=Eliminar.php?id=<?php echo $row['idReclamo'];?>>Concluir</a></td>";
+                <?php echo "</tr>";
+            }
+            echo "</table>";
+            mysqli_free_result($result)
+            ?>
+        </div>
     </div>
-
 </body>
 </html>
