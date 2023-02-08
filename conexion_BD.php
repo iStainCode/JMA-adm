@@ -1,5 +1,6 @@
 <?php
     // nombres de la base de datos de peña :  bdjma
-    $conexion = new mysqli("localhost","root","","jmaAdm");
+    $conexion = mysqli_connect("localhost","root","");
     $conexion -> set_charset("utf8");
+    $bd = mysqli_select_db($conexion,"jmaadm");
 ?>

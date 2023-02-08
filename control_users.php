@@ -68,7 +68,23 @@
         </div>
     </div>
     <div class="container-usu">
-        <button class="btn">Añadir Usuario</button>
+        <a href="newUser.php"><button class="btn">Añadir Usuario</button></a>
+        <div class="login-box modal">
+            <form>
+                <div class="user-box">
+                <input required="" name="" type="text">
+                <label>Username</label>
+                </div>
+                <div class="user-box">
+                <input required="" name="" type="password">
+                <label>Password</label>
+                </div><center>
+                <a href="#">
+                    SEND
+                <span></span>
+                </a></center>
+            </form>
+            </div>
         <div class="container-table">
         <?php
             $user = "root";
@@ -98,12 +114,16 @@
                 <?php echo "<tr>";
                 echo "<td>" . $row['idUsuario']. "</td>";
                 echo "<td>" . $row['nombre']. "</td>";
-                echo "<td>" . $row['apellido'] . "</td>";
-                echo "<td>" . $row['telefono'] . "</td>";
-                echo "<td>" . $row['cargo'] . "</td>";
-                echo "<td>" . $row['correo'] . "</td>";
+                echo "<td>" . $row['apellidos'] . "</td>";
+                echo "<td>" . $row['email'] . "</td>";
+                echo "<td>" . $row['cate_usu'] . "</td>";
                 ?>
-                <td><a class="Delete" href=Eliminar.php?id=<?php echo $row['idReclamo'];?>>Concluir</a></td>";
+                <td>
+                    <a class="bx bxs-edit"
+                    href=Eliminar.php?id=<?php echo $row['idUsuario'];?>></a>
+                    <a class="bx bx-x"
+                    href=Eliminar.php?id=<?php echo $row['idUsuario'];?>></a>
+                </td>";
                 <?php echo "</tr>";
             }
             echo "</table>";

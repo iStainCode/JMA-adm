@@ -16,6 +16,6 @@ if (isset($_POST["txtCorreo"]) && isset($_POST["txtContra"])) {
     } else {
         // El usuario no existe, mostrar un mensaje de error
         echo "El correo y/o contraseña son incorrectos";
-    }
+    } 
 }
 ?>
